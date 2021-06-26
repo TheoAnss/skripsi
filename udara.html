@@ -62,11 +62,11 @@
     <div class="container mt-5 text-center">
       <h1 class="display-6">Persebaran Data Gempa Bumi Di Indonesia</h1>
       <p class="lead mt-5">
-        
+        <div id = "result"></div>
       </p>
     </div>
    
-    <div id = "result"></div>
+    
     <script type="text/javascript">
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
     fetch(apiUrl).then(Response => { return Response.json();})
