@@ -77,9 +77,13 @@
     </div>
    
    <div class="p-3 mb-2 bg-light text-gray-dark">
+     <div class="container mt-5 text-center">
+             <p class="lead mt-5">
+               <h1 class="display-6"> Forecasting </h1>  
+            </p>
     <div id="tgl"></div>
     <div id="avg"></div>
-     
+     </div>
     </div>
     
     <script type="text/javascript">
@@ -97,7 +101,7 @@
   .then(data => {
       data.data.forecast.daily.o3.forEach(element =>{
         document.getElementById("avg").innerHTML +=element.avg +"&emsp;&emsp;";
-        document.getElementById("tgl").innerHTML +=element.day +"&ensp;&ensp;";
+        document.getElementById("tgl").innerHTML +=element.day +"&ensp;&ensp;"+;
         console.log(element)
       });
     
