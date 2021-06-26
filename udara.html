@@ -84,7 +84,7 @@
   .then(data => {
       document.getElementById("o3").innerHTML +="data harian 03 anda " + data.data.forecast.daily.o3.forEach(element =>{
         
-        console.log(element)
+        console.log(element.day)
       });
       console.log(data)
   })
