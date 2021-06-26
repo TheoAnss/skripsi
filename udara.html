@@ -83,10 +83,10 @@
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
       data.data.forecast.daily.o3.forEach(element =>{
-        let avg = element.avg;
+        document.getElementById("avg").innerHTML +="Rata-rata o3 adalah <br>" + element.avg;
         console.log(element)
       });
-    document.getElementById("avg").innerHTML +="Rata-rata o3 adalah <br>" + element[0].avg;
+    
       console.log(data)
   })
     </script>
