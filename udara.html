@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html" style="font-size: 16px"
-          >Jakarta AQI</a
+          >Jakarta AQI            </a
         >
         <button
           class="navbar-toggler"
@@ -35,23 +35,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="about.html"
-                >Tentang</a
+              <a class="nav-link active" aria-current="page" href="udara.html"
+                >Air Quality Index</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="udara.html"
-                >Kualitas Udara Jakarta</a
+              <a class="nav-link" aria-current="page" href="polusi.html"
+                >Air Infos</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="database.html"
-                >Database</a
+              <a class="nav-link" aria-current="page" href="aboutus.html"
+                >About Us</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="member.html"
-                >Kelompok</a
+                >Test</a
               >
             </li>
           </ul>
@@ -61,6 +61,14 @@
 
     <div class="container mt-5 text-center">
       <h1 class="display-6">Kualitas udara di Jakarta</h1>
+        <div class="row">
+         <div class="col-md-6">
+           Yuk jaga Kesehatan yuk, karena kalau bukan kita, siapa lagi ?
+         </div>
+          <div class="col-md-6">
+           Selalu jagaa yuk semangat!!!
+          </div>
+        </div>
       <p class="lead mt-5">
         Kualitas udara di jakarta sangat lah buruk. Didapati dari baru baru ini, kita melihat.
       </p>
@@ -83,7 +91,7 @@
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
       data.data.forecast.daily.o3.forEach(element =>{
-        document.getElementById("avg").innerHTML +="Rata-rata o3 adalah <br>" + element.avg;
+        document.getElementById("avg").innerHTML +="Rata-rata o3 adalah " + element.avg +"<br> ";
         console.log(element)
       });
     
@@ -91,6 +99,7 @@
   })
     </script>
     
+    <!--
     <div class="row">
   <div class="col-md-6">
   Yuk jaga Kesehatan yuk, karena kalau bukan kita, siapa lagi ?
@@ -98,7 +107,7 @@
   <div class="col-md-6">
   Selalu jagaa yuk semangat!!!
   </div>
-  </div>
+  </div>-->
 
 
     <script
