@@ -60,28 +60,27 @@
     </nav>
 
     <div class="container mt-5 text-center">
-      <h1 class="display-6">Kualitas udara di Jakarta</h1>
+      <h1 class="display-6">Kualitas udara di Jakarta </h1> <br>
         <div class="row">
          <div class="col-md-6">
-           Yuk jaga Kesehatan yuk, karena kalau bukan kita, siapa lagi ?
+           <div id="result"></div>
          </div>
           <div class="col-md-6">
+            <p class="lead mt-5">
            Selalu jagaa yuk semangat!!!
+            </p>
           </div>
         </div>
-      <p class="lead mt-5">
-        Kualitas udara di jakarta sangat lah buruk. Didapati dari baru baru ini, kita melihat.
-      </p>
-      <div id="result"></div>
-      <div id="avg"></div>
+       <div id="avg"></div>
     </div>
+   
    
     
     <script type="text/javascript">
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
     fetch(apiUrl).then(Response => { return Response.json();})
     .then(data => {
-        document.getElementById("result").innerHTML +="Aqi sekarang adalah " + data.data.aqi;
+        document.getElementById("result").innerHTML +="Aqi sekarang adalah <h2>" + data.data.aqi +"</h2>";
         console.log(data)
     })
     </script>
