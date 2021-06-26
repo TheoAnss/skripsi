@@ -82,8 +82,8 @@
   var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
-      document.getElementById("o3").innerHTML +="data harian 03 anda" + data.data.forecast.daily.each(e =>{
-        console.log(e)
+      document.getElementById("o3").innerHTML +="data harian 03 anda" + data.data.forecast.daily.o3.forEach(element =>{
+        console.log(element)
       });
       console.log(data)
   })
