@@ -10,7 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
 
-  <!-- PAKE CSS LEAFLET MAP -->>
+  <!-- PAKE CSS LEAFLET MAP -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin="" />
@@ -26,8 +26,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html" style="font-size: 16px">Persebaran Data Gempa Bumi Indonesia
-        2015-2019</a>
+      <a class="navbar-brand" href="index.html" style="font-size: 16px">Jakarta AQI</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,13 +37,13 @@
             <a class="nav-link" aria-current="page" href="about.html">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="theory.html">Pelajari Kualitas udara</a>
+            <a class="nav-link" aria-current="page" href="theory.html">Kualitas Udara Jakarta</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="database.html">Prediksi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="member.html">Tentang</a>
+            <a class="nav-link" aria-current="page" href="member.html">Sumber Data</a>
           </li>
         </ul>
       </div>
@@ -65,7 +64,7 @@
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
       id: 'mapbox/streets-v11',
-      tileSize: 512,
+      tileSize: 256,
       zoomOffset: -1,
       accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
@@ -76,7 +75,7 @@
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox/streets-v11',
-    tileSize: 512,
+    tileSize: 256,
     zoomOffset: -1,
     accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
