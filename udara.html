@@ -72,7 +72,9 @@
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
     fetch(apiUrl).then(Response => { return Response.json();})
     .then(data => {
-        document.getElementById("result").innerHTML +="Aqi sekarang adalah" + data.data.aqi;
+        document.getElementById("result").innerHTML +="Aqi sekarang adalah " + data.data.aqi +
+          "<br> dan Kadar O3 selama beberapa hari kedepan adalah" + data.data.forecast.daily.o3.each(hasil)=>
+        {console.log(hasil)};
         console.log(data)
     })
     </script>
