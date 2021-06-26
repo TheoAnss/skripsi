@@ -62,26 +62,18 @@
     <div class="container mt-5 text-center">
       <h1 class="display-6">Persebaran Data Gempa Bumi Di Indonesia</h1>
       <p class="lead mt-5">
-        Persebaran data kegempaan pada wilayah Indonesia selama 5 tahun dari
-        tahun 2015-2020. Data kegempaan ini di batasi hanya dari minimum
-        magnitude 6 saja, hal ini dikarenakan kelompok 6 ingin mengetahui dimana
-        saja wilayah ancaman gempa bumi dengan magnitude yang tinggi. Tentunya
-        hal ini akan berguna untuk proses mitigasi bencana yang rawan akan
-        ancaman tersebut. Pada web ini nantinya akan disajikan data persebaran
-        gempa bumi dengan minimum magnitude 6 serta edukasi gempa bumi. Edukasi
-        ini bertujuan untuk memberikan informasi kepada masyarakat tentang gempa
-        bumi.
+        
       </p>
     </div>
    
+    <div id = "result"></div>
     <script type="text/javascript">
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
     fetch(apiUrl).then(Response => { return Response.json();})
     .then(data => {
-        
+        document.getElementById("result").innerHTML + ="Aqi sekarang adalah" + data.data.aqi;
         console.log(data)
     })
-
     </script>
 
 
