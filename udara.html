@@ -84,7 +84,7 @@
   .then(data => {
       data.data.forecast.daily.o3.forEach(element =>{
         document.getElementById("avg").innerHTML +="Rata-rata o3 adalah " + element.avg +" <br>";
-        console.log(element)
+        console.log(element[0].avg)
       });
       console.log(data)
   })
