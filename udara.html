@@ -94,7 +94,7 @@
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
       data.data.forecast.daily.o3.forEach(element =>{
-        document.getElementById("avg").innerHTML +="Rata-rata o3 adalah " + element.avg +"<br> ";
+        document.getElementById("avg").innerHTML +="Rata-rata o3 adalah " + element.avg;
         console.log(element)
       });
     
