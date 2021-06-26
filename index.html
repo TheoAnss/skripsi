@@ -104,7 +104,6 @@
 
     function onMapClick(e) {
       popup
-        .setContent("PM2.5 = " )
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(mymap);
