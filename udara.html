@@ -77,8 +77,9 @@
     </div>
    
    <div class="p-3 mb-2 bg-light text-gray-dark">
+    <div id="tgl"></div>
     <div id="avg"></div>
-     <div id="tgl"></div>
+     
     </div>
     
     <script type="text/javascript">
@@ -95,8 +96,8 @@
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
       data.data.forecast.daily.o3.forEach(element =>{
-        document.getElementById("avg").innerHTML +=element.avg +"<br>";
-        document.getElementById("tgl").innerHTML +=element.day +"<br>";
+        document.getElementById("avg").innerHTML +=element.avg +"       ";
+        document.getElementById("tgl").innerHTML +=element.day +"       ";
         console.log(element)
       });
     
