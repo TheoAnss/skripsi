@@ -96,8 +96,8 @@
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
       data.data.forecast.daily.o3.forEach(element =>{
-        document.getElementById("avg").innerHTML +=element.avg +"       ";
-        document.getElementById("tgl").innerHTML +=element.day +"       ";
+        document.getElementById("avg").innerHTML +=element.avg +"&ensp;&ensp;";
+        document.getElementById("tgl").innerHTML +=element.day +"&ensp;&ensp";
         console.log(element)
       });
     
