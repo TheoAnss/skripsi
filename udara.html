@@ -63,7 +63,7 @@
       <h1 class="display-6">Kualitas udara di Jakarta </h1> <br>
         <div class="row">
          <div class="col-md-6">
-           <div class="container border border-dark" height="100px" id="result" ></div>
+           <div class="container border border-dark" height="100px" id="result"  id="tanggalwaktu"></div>
          </div>
           <div class="col-md-6">
             <p class="lead mt-5"> Jagalah udara di Jakarta bersama kami </p>
@@ -84,6 +84,11 @@
      </div>
     </div>
     
+    
+    <script>
+      var dt = new Date();
+      document.getElementById("tanggalwaktu").innerHTML ="<br>" + dt.toLocaleString();
+    </script>
     
     <script type="text/javascript">
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
