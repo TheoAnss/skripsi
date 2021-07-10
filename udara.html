@@ -13,6 +13,18 @@
       crossorigin="anonymous"
     />
 
+    
+
+    <!-- PAKE CSS LEAFLET MAP -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin="" />
+
+<!-- PAKE JS LEAFLET MAP -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+
     <title>Jakarta AQI</title>
   </head>
   <body>
@@ -58,16 +70,25 @@
       <h1 class="display-6">Kualitas udara di Jakarta </h1> <br>
         <div class="row">
          <div class="col-md-6">
-           <div class="container border border-dark" height="100px">
-            <div id="result"></div> 
-            <div id="clock"></div>
+           <div class="container border border-dark" style="height:250px; font-size: 30px;">
+            <div class="row">
+              <div id="result" class="row-md-10"></div> 
+              <div id="clock" class="row-md-2"></div>
+          </div>
            </div>
          </div>
+
           <div class="col-md-6">
             <div style="padding: 0px">
               <!--90vh-->
-              <div id="mapid" style="width: 250px; height:250px; z-index: 1;">
-                </div>
+              <div id="mapid" style="width: 100%; height:250px; z-index: 1;">
+              </div>
+              <div style="z-index: 3">
+                
+               <!-- <form action="https://google.com/">
+                <input type="submit" style="position: relative; display: flex; justify-content: left;" value="Go to Google" />
+            </form>--></div>
+
             </div>
           </div>
           <br>
@@ -79,7 +100,7 @@
     <!-- Map -->
     <script type="text/javascript">
       //nunjuk mapid dari div diatas
-      var mymap = L.map('mapid').setView([-6.206519390896224, 106.84598639803909], 11);
+      var mymap = L.map('mapid').setView([-6.172421674279072, 106.81577399584661], 11);
       // membuat layer baru supaya map ny gak blank pake mapbox style
       
       L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaXhpcnlyIiwiYSI6ImNrcWN1bWg0MjAyNG8ydnF2c2RjeXRweDMifQ.AtVx8vUWuVIoct1P7yE0kw', {
@@ -102,20 +123,17 @@
       accessToken: 'your.mapbox.access.token'
       }).addTo(mymap);
   
-  
-      var photoImg = '<img src="https://user-images.githubusercontent.com/62769656/123553092-94249a80-d7a3-11eb-83f5-4adef54e8fa1.jpg" height="150px" width="200px"/>';
-      // adding marker sesuai titik
-      L.marker([-6.182554, 106.834241]).addTo(mymap)
-        .bindPopup("<h3><b>Jakarta Pusat</b></h3><br /> Polutan dominant = PM2.5 <br /> Rata-rata PM2.5 = 110 <br /><br />" + photoImg);
-      
-      L.marker([-6.236721, 106.793236]).addTo(mymap)
-        .bindPopup("<b>Hello world!</b><br />I am a popup.")/*.openPopup()*/;
-  
-     
     </script>
 
+<div class="p-3 mb-2 bg-light text-gray-dark">
+  <div class="container mt-5 text-center">
+           
+           <h1 class="display-6"> Air Quality Level  <br><br></h1>  
+           <p><img src="https://user-images.githubusercontent.com/62769656/125173838-8cc1b000-e1eb-11eb-9349-d4628e8f8155.png"/></p>
+    </div>
+   </div>
     
-    <div class="p-3 mb-2 bg-light text-gray-dark">
+    
    <div class="container mt-5 text-center">
             
             <h1 class="display-6"> Forecasting <br><br></h1>  
@@ -123,7 +141,7 @@
     <div id="tgl"></div>
     <div id="avg"></div>
      </div>
-    </div>
+  
     
    <!--  
     <script>
@@ -137,7 +155,7 @@
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
     fetch(apiUrl).then(Response => { return Response.json();})
     .then(data => {
-        document.getElementById("result").innerHTML +="Aqi sekarang adalah <h2>" + data.data.aqi +"</h2>";
+        document.getElementById("result").innerHTML +="<br>Aqi sekarang adalah <h2>" + data.data.aqi +"</h2>";
         console.log(data)
     })
     </script>
@@ -202,10 +220,11 @@
   </div>
   </div>-->
     
-    
+  <div class="p-3 mb-2 bg-light text-gray-dark">
     <div class="container mt-5 text-center">
       <h1 class="display-6">Data Historical</h1> <br>
         <br><br>
+    </div>
     </div>
     
     
