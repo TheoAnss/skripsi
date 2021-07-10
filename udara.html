@@ -25,6 +25,12 @@
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
 
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    </style>
+
     <title>Jakarta AQI</title>
   </head>
   <body>
@@ -129,17 +135,30 @@
   <div class="container mt-5 text-center">
            
            <h1 class="display-6"> Air Quality Level  <br><br></h1>  
-           <p><img src="https://user-images.githubusercontent.com/62769656/125173838-8cc1b000-e1eb-11eb-9349-d4628e8f8155.png"/></p>
+           <p><img src="https://user-images.githubusercontent.com/62769656/125173838-8cc1b000-e1eb-11eb-9349-d4628e8f8155.png" height="800px" width="1000px"/></p>
     </div>
    </div>
     
     
    <div class="container mt-5 text-center">
             
-            <h1 class="display-6"> Forecasting <br><br></h1>  
-            
-    <div id="tgl"></div>
-    <div id="avg"></div>
+    <h1 class="display-6"> Forecasting <br><br></h1>  
+    <table border="1" style="width: 100%;">
+      <tr id="tgl">
+       <td>Tanggal</td> 
+      </tr>
+
+      <tr id="avg">
+      <td>O3</td>    
+      </tr>
+
+    <tr id="pm">
+    <td>PM10</td>    
+    </tr>
+    </table>      
+      
+    <!--<div id="tgl"></div>
+    <div id="avg"></div>-->
      </div>
   
     
@@ -164,15 +183,37 @@
   var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
-      data.data.forecast.daily.o3.forEach(element =>{
+    let i = 2;
+    while(i <= data.data.forecast.daily.o3.length){
+      document.getElementById("avg").innerHTML +="<td>" + data.data.forecast.daily.o3[i].min + " - " + data.data.forecast.daily.o3[i].max + "</td>";
+      document.getElementById("tgl").innerHTML +="<td>" + data.data.forecast.daily.o3[i].day +"</td>";
+      i++;
+    };
+    
+        /*data.data.forecast.daily.o3.forEach(element =>{
         document.getElementById("avg").innerHTML +="&emsp;" + element.avg +"&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;";
         document.getElementById("tgl").innerHTML +=element.day +"&emsp;&emsp;";
         console.log(element)
-      });
+      });*/
     
       console.log(data)
   })
     </script>
+
+<script type="text/javascript">
+  var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
+  fetch(url).then(Response => { return Response.json();})
+  .then(data => {
+    let i = 2;
+    while(i <= data.data.forecast.daily.pm10.length){
+      document.getElementById("pm").innerHTML +="<td>" + data.data.forecast.daily.pm10[i].min + " - " + data.data.forecast.daily.pm10[i].max + "</td>";
+      i++;
+    };
+      console.log(data)
+  })
+    </script>
+
+  
 
      <!-- Menampilkan Jam (Aktif) -->
     <div id="clock"></div>
