@@ -64,18 +64,61 @@
            </div>
          </div>
           <div class="col-md-6">
-            <p class="lead mt-5"> Jagalah udara di Jakarta bersama kami </p>
+            <div style="padding: 0px">
+              <!--90vh-->
+              <div id="mapid" style="width: 250px; height:250px; z-index: 1;">
+                </div>
+            </div>
           </div>
           <br>
         </div>
         <br>
        
     </div>
+
+    <!-- Map -->
+    <script type="text/javascript">
+      //nunjuk mapid dari div diatas
+      var mymap = L.map('mapid').setView([-6.206519390896224, 106.84598639803909], 11);
+      // membuat layer baru supaya map ny gak blank pake mapbox style
+      
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaXhpcnlyIiwiYSI6ImNrcWN1bWg0MjAyNG8ydnF2c2RjeXRweDMifQ.AtVx8vUWuVIoct1P7yE0kw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'your.mapbox.access.token'
+      }).addTo(mymap);
+      
+      
+  
+      L.tileLayer('https://tiles.aqicn.org/tiles/usepa-aqi/{z}/{x}/{y}.png?token=434fc6630336ffcd47f950e20f91cb60a3c75603', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: 'your.mapbox.access.token'
+      }).addTo(mymap);
+  
+  
+      var photoImg = '<img src="https://user-images.githubusercontent.com/62769656/123553092-94249a80-d7a3-11eb-83f5-4adef54e8fa1.jpg" height="150px" width="200px"/>';
+      // adding marker sesuai titik
+      L.marker([-6.182554, 106.834241]).addTo(mymap)
+        .bindPopup("<h3><b>Jakarta Pusat</b></h3><br /> Polutan dominant = PM2.5 <br /> Rata-rata PM2.5 = 110 <br /><br />" + photoImg);
+      
+      L.marker([-6.236721, 106.793236]).addTo(mymap)
+        .bindPopup("<b>Hello world!</b><br />I am a popup.")/*.openPopup()*/;
+  
+     
+    </script>
+
     
     <div class="p-3 mb-2 bg-light text-gray-dark">
    <div class="container mt-5 text-center">
             
-               <h1 class="display-6"> Forecasting <br><br></h1>  
+            <h1 class="display-6"> Forecasting <br><br></h1>  
             
     <div id="tgl"></div>
     <div id="avg"></div>
