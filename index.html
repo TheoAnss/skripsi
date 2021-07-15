@@ -20,6 +20,7 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 
+    <!-- CSS INFO -->
     <style>
       #stacked{
       display: flex;
@@ -36,9 +37,10 @@
 </head>
 
 <body>
+  <!-- NAVIGATION BAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html" style="font-size: 16px">&ensp;&ensp; Jakarta AQI Maps &emsp;&emsp;&emsp;&emsp;&emsp;</a>
+      <a class="navbar-brand" href="index.html" style="font-size: 16px">Jakarta Air Quality Index Maps &emsp;&emsp;</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -60,7 +62,7 @@
   </nav>
 
   
-
+  <!--DIV UNTUK MAPS -->
   <div style="padding: 0px">
     <!--90vh-->
     <div id="mapid" style="width: 100%; height:90vh; z-index: 1;">
@@ -81,7 +83,6 @@
       accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
     
-    
 
     L.tileLayer('https://tiles.aqicn.org/tiles/usepa-aqi/{z}/{x}/{y}.png?token=434fc6630336ffcd47f950e20f91cb60a3c75603', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -92,17 +93,21 @@
     accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
 
-
+    //Marker dan keterangan pada marker
     var photoImg = '<img src="https://user-images.githubusercontent.com/62769656/123553092-94249a80-d7a3-11eb-83f5-4adef54e8fa1.jpg" height="150px" width="200px"/>';
     // adding marker sesuai titik
     L.marker([-6.182554, 106.834241]).addTo(mymap)
-      .bindPopup("<h3><b>Jakarta Pusat</b></h3><br /> Polutan dominant = PM2.5 <br /> Rata-rata PM2.5 = 110 <br /><br />" + photoImg);
+      .bindPopup("<h3><b>Jakarta Pusat</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />" + photoImg);
     
     L.marker([-6.236721, 106.793236]).addTo(mymap)
       .bindPopup("<b>Hello world!</b><br />I am a popup.")/*.openPopup()*/;
 
-    /*  
-    L.circle([51.508, -0.11], 500, {
+      //Lambang ketiga ini mengambil pm2,5  sebagai Nilai AQI utamanya jadi kadang berbeda hasil pengukurannya
+      L.marker([-6.160502, 106.847364]).addTo(mymap)
+      .bindPopup("<b>Hello world!</b><br />I am a popup.")/*.openPopup()*/;
+
+     /* 
+    L.circle([-6.182554, 106.934241], 500, {
       color: 'red',
       fillColor: '#f03',
       fillOpacity: 0.5
@@ -113,8 +118,8 @@
       [51.503, -0.06],
       [51.51, -0.047]
     ]).addTo(mymap).bindPopup("I am a polygon.");
-    */
-    /*
+    
+    
     var popup = L.popup();
     
     function onMapClick(e) {
@@ -129,39 +134,34 @@
 
   </script>
 
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
 
+
+    <script type="text/javascript">
+      var urlapi = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
+      fetch(urlapi).then(Response => { return Response.json();})
+      .then(data => {
+            //GET DATA NORMAL
+          console.log(data)
+      })
+        </script>
+
+
+
+    <!--Keterangan-->
     <div class = "container" id="stacked">
       <div class = "row">
         <div class="col-sm-2" style='background-color:green; color: white;'>Good</div>
         <div class="col-sm-2" style='color: black; background-color: yellow;'>Moderate</div>
-        <div class="col-sm-2" style="background-color: orangered; color: white;">Unhealthy For Sensitive Groups</div>
+        <div class="col-sm-2" style="background-color: orangered; color: black;">Unhealthy For Sensitive Groups</div>
         <div class="col-sm-2" style="background-color:red; color: white;">Unhealthy</div>
         <div class="col-sm-2" style="background-color: purple; color: white;">Very Unhealthy</div>
         <div class="col-sm-2" style="background-color: maroon; color: white;">Hazardous</div>
       </div>
   
      </div>
-
-<!--
- 
-  <div id='map' style='height:380px;'/>
-  <link rel="stylesheet" href="http: //cdn.leafletjs.com/leaflet-0.7.5/leaflet.css"/>
-  <scriptsrc="http: //cdn.leafletjs.com/leaflet-0.7.5/leaflet.js">
-  </script>
-    <script> var OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-              var OSM_ATTRIB#NBSP# =#NBSP#'&copy;<a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-var osmLayer = L.tileLayer(OSM_URL,{ attribution: OSM_ATTRIB});
-var WAQI_UR = "https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=_TOKEN_ID_"; 
-var WAQI_ATTR = 'Air Quality Tiles; <a href="http://waqi.info">waqi.info</a>';
-var waqiLaye =L.tileLayer(WAQI_URL,{ attribution:WAQI_ATTR});
-va map =L.map('map').setView([51.505, - 0.09],11);map.addLayer(osmLayer).addLayer(waqiLayer);
-</script>
-
--->
 
 
 </body>
