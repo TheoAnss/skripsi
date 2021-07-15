@@ -13,20 +13,19 @@
       crossorigin="anonymous"
     />
 
-    
-
     <!-- PAKE CSS LEAFLET MAP -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-  crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
 
-<!-- PAKE JS LEAFLET MAP -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-  crossorigin=""></script>
-
-  <style>
-    table, th, td {
+    <!-- PAKE JS LEAFLET MAP -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
+    
+    <!-- CSS Table -->  
+    <style>
+      table, th, td {
       border: 1px solid black;
     }
     </style>
@@ -34,10 +33,11 @@
     <title>Jakarta AQI</title>
   </head>
   <body>
+    <!-- NAVIGATION BAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html" style="font-size: 16px"
-          >&ensp;&ensp; Jakarta AQI Maps &emsp;&emsp;&emsp;&emsp;&emsp;</a
+          >Jakarta Air Quality Index Maps &emsp;&emsp;</a
         >
         <button
           class="navbar-toggler"
@@ -72,28 +72,31 @@
       </div>
     </nav>
 
+    <!-- CONTENT -->
+    <!-- 1. KUALITAS UDARA DI JAKARTA -->
     <div class="container mt-5 text-center">
       <h1 class="display-6">Kualitas udara di Jakarta </h1> <br>
         <div class="row">
          <div class="col-md-6">
            <div class="container border border-dark" style="height:250px; font-size: 30px;">
+            <!--Real Time Air Quality-->
             <div class="row">
               <div id="result" class="row-md-10"></div> 
               <div id="clock" class="row-md-2"></div>
           </div>
            </div>
          </div>
-
+         <!--Maps-->
           <div class="col-md-6">
             <div style="padding: 0px">
               <!--90vh-->
               <div id="mapid" style="width: 100%; height:250px; z-index: 1;">
               </div>
               <div style="z-index: 3">
-                
-               <!-- <form action="https://google.com/">
-                <input type="submit" style="position: relative; display: flex; justify-content: left;" value="Go to Google" />
-            </form>--></div>
+                <!-- BUTTON -->
+                <form action="https://theoanss.github.io/skripsi/index.html">
+                <input type="submit" style="position: relative; display: flex; justify-content: left;" value="Full Size" />
+                </form></div>
 
             </div>
           </div>
@@ -117,8 +120,6 @@
         zoomOffset: -1,
         accessToken: 'your.mapbox.access.token'
       }).addTo(mymap);
-      
-      
   
       L.tileLayer('https://tiles.aqicn.org/tiles/usepa-aqi/{z}/{x}/{y}.png?token=434fc6630336ffcd47f950e20f91cb60a3c75603', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -131,6 +132,7 @@
   
     </script>
 
+<!-- 2. AIR QUALITY LEVEL -->
 <div class="p-3 mb-2 bg-light text-gray-dark">
   <div class="container mt-5 text-center">
            
@@ -139,11 +141,11 @@
     </div>
    </div>
     
-    
+  <!-- 3. FORECASTING -->
    <div class="container mt-5 text-center">
-            
     <h1 class="display-6"> Forecasting <br><br></h1>  
-    <table border="1" style="width: 100%;">
+    <!--Table-->
+    <table style="width: 100%;">
       <tr id="tgl">
        <td>Tanggal</td> 
       </tr>
@@ -152,24 +154,15 @@
       <td>O3</td>    
       </tr>
 
-    <tr id="pm">
-    <td>PM10</td>    
-    </tr>
-    </table>      
-      
-    <!--<div id="tgl"></div>
-    <div id="avg"></div>-->
-     </div>
+      <tr id="pm">
+      <td>PM10</td>    
+      </tr>
+      </table>      
+    
+      </div>
   
     
-   <!--  
-    <script>
-      var dt = new Date();
-      document.getElementById("tanggalwaktu").innerHTML +="<br>" + dt.toLocaleString();
-    </script>
-  -->
-
-  <div id="clock"></div>
+     <!--API--> 
     <script type="text/javascript">
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
     fetch(apiUrl).then(Response => { return Response.json();})
@@ -189,7 +182,7 @@
       document.getElementById("tgl").innerHTML +="<td>" + data.data.forecast.daily.o3[i].day +"</td>";
       i++;
     };
-    
+        //GET DATA NORMAL
         /*data.data.forecast.daily.o3.forEach(element =>{
         document.getElementById("avg").innerHTML +="&emsp;" + element.avg +"&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;";
         document.getElementById("tgl").innerHTML +=element.day +"&emsp;&emsp;";
@@ -251,16 +244,7 @@
     setInterval(showTime, 500);
  </script>
 
-    <!--
-    <div class="row">
-  <div class="col-md-6">
-  Yuk jaga Kesehatan yuk, karena kalau bukan kita, siapa lagi ?
-  </div>
-  <div class="col-md-6">
-  Selalu jagaa yuk semangat!!!
-  </div>
-  </div>-->
-    
+   <!-- 4. DATA HISTORICAL -->
   <div class="p-3 mb-2 bg-light text-gray-dark">
     <div class="container mt-5 text-center">
       <h1 class="display-6">Data Historical</h1> <br>
@@ -268,14 +252,7 @@
     </div>
     </div>
     
-    
-    
-    
-    
-    
-    
-    
-  
+    <!-- FOOTER -->
    <footer class="footer">
     <div class="container text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">
       <span class="text-muted">Copyright @theodorusansell 2021.</span>
