@@ -100,11 +100,11 @@
       .bindPopup("<h3><b>Jakarta Pusat</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />" + photoImg);
     
     L.marker([-6.236721, 106.793236]).addTo(mymap)
-      .bindPopup("<b>Hello world!</b><br />I am a popup.")/*.openPopup()*/;
+      .bindPopup("<h3><b>Jakarta Selatan</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />")/*.openPopup()*/;
 
       //Lambang ketiga ini mengambil pm2,5  sebagai Nilai AQI utamanya jadi kadang berbeda hasil pengukurannya
       L.marker([-6.160502, 106.847364]).addTo(mymap)
-      .bindPopup("<b>Hello world!</b><br />I am a popup.")/*.openPopup()*/;
+      .bindPopup("<h3><b>Jakarta Utara</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />")/*.openPopup()*/;
 
      /* 
     L.circle([-6.182554, 106.934241], 500, {
@@ -153,12 +153,13 @@
     <!--Keterangan-->
     <div class = "container" id="stacked">
       <div class = "row">
-        <div class="col-sm-2" style='background-color:green; color: white;'>Good</div>
-        <div class="col-sm-2" style='color: black; background-color: yellow;'>Moderate</div>
-        <div class="col-sm-2" style="background-color: orangered; color: black;">Unhealthy For Sensitive Groups</div>
-        <div class="col-sm-2" style="background-color:red; color: white;">Unhealthy</div>
-        <div class="col-sm-2" style="background-color: purple; color: white;">Very Unhealthy</div>
-        <div class="col-sm-2" style="background-color: maroon; color: white;">Hazardous</div>
+        <!-- Warna ini berdasarkan Report Guidline Air Quality EPA GOV US -->
+        <div class="col-sm-2" style='background-color:#0bb90b; color: white;'>Good</div>
+        <div class="col-sm-2" style='color: black; background-color:#fafa07;'>Moderate</div>
+        <div class="col-sm-2" style="background-color:#FF7E00; color: black;">Unhealthy For Sensitive Groups</div>
+        <div class="col-sm-2" style="background-color:#d11609; color: white;">Unhealthy</div>
+        <div class="col-sm-2" style="background-color:#800944; color: white;">Very Unhealthy</div>
+        <div class="col-sm-2" style="background-color: #4C0026; color: white;">Hazardous</div>
       </div>
   
      </div>
