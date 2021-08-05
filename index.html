@@ -33,10 +33,72 @@
     }
     </style>
 
+    <!--SplashScreen-->
+    <style>
+      .splash{
+        position:fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgb(241, 237, 237);
+        justify-content: space-around;
+        z-index: 200;
+        color: Black;
+        text-align:center;
+        line-height: 50px;
+      }
+
+      .splash.display-none{
+        position:fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: black;
+        z-index: -10;
+        color: white;
+        text-align: center;
+        line-height: 90vh;
+        transition: all 0.5s;
+      }
+      @keyframes fadeIn {
+        to{
+          opacity: 1;
+        }
+      }
+
+      .fadeIn{
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+      }
+    </style>
+
   <title>Jakarta AQI</title>
 </head>
 
 <body>
+
+  <div class="splash">
+    <h1 class="fadeIn">WELCOME</h1>
+  </div>
+ 
+  <script>
+    const splash = document.querySelector('.splash');
+    document.addEventListener('DOMContentLoaded', (e)=>{
+      setTimeout(()=>{
+        splash.classList.add('display-none');
+      }, 2000);
+    })
+  </script>
+
   <!-- NAVIGATION BAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
