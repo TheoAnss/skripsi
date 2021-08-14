@@ -20,6 +20,12 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 
+  <style>
+    #aqua{
+      color: #0bb90b;
+    }
+  </style>
+
     <!-- CSS INFO -->
     <style>
       #stacked{
@@ -69,6 +75,8 @@
         line-height: 90vh;
         transition: all 0.5s;
       }
+
+      
       @keyframes fadeIn {
         to{
           opacity: 1;
@@ -155,19 +163,88 @@
     accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
 
-    //Marker dan keterangan pada marker
-    var photoImg = '<img src="https://user-images.githubusercontent.com/62769656/123553092-94249a80-d7a3-11eb-83f5-4adef54e8fa1.jpg" height="150px" width="200px"/>';
+    var ab = "";
+    var cd = "";
+    var ef="";
+    var gh="";
+    var a = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
+      fetch(a).then(Response => { return Response.json();})
+      .then(data => {
+          //document.getElementById("aqua").innerHTML +="<br>Aqi sekarang adalah <h2>" + data.data.aqi +"</h2>";
+
+          console.log(data);
+          cd=String("Air Quality Index = " +data.data.aqi);
+          ab=String("Polutan Dominan = " +data.data.dominentpol );
+          ef=String("Data diperbarui pada = "+data.data.time.s);
+          gh=String("Suhu udara = "+data.data.iaqi.t.v+"°C")
+          
+          //cd = "abcd";
+          //cd.concat("data.data.aqi");
+      }).then(Response => {
+        var photoImg = '<img src="https://user-images.githubusercontent.com/62769656/123553092-94249a80-d7a3-11eb-83f5-4adef54e8fa1.jpg" height="150px" width="200px"/>';
     // adding marker sesuai titik
-    L.marker([-6.182554, 106.834241]).addTo(mymap)
-      .bindPopup("<h3><b>Jakarta Pusat</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />" + photoImg);
+      L.marker([-6.182536,106.834236]).addTo(mymap)
+      .bindPopup("<h3><b>Jakarta Pusat</b></h3><br /> "+ cd +" </br>"+ab+"</br>"+gh+"</br>"+ef+" <br /><br />" + photoImg);
+      })
+
+      var ij="";
+      var kl="";
+      var mn="";
+      var op="";
+      var b = 'https://api.waqi.info/feed/indonesia/jakarta/us-consulate/south/?token=d2979932369608cb248b3329736a6d480b3ff31c';
+      fetch(b).then(Response => { return Response.json();})
+      .then(data => {
     
-    L.marker([-6.236721, 106.793236]).addTo(mymap)
-      .bindPopup("<h3><b>Jakarta Selatan</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />")/*.openPopup()*/;
+          console.log(data);
+          ij=String("Air Quality Index = " +data.data.aqi);
+          kl=String("Polutan Dominan = " +data.data.dominentpol );
+          mn=String("Data diperbarui pada = "+data.data.time.s);
+          op=String("Suhu udara = "+data.data.iaqi.t.v+"°C")
+          
+      }).then(Response => {
+        var img2 = '<img src="https://user-images.githubusercontent.com/62769656/129461878-2ff2496a-8d6d-42ec-a0e0-663ea7f1d5dc.png" height="150px" width="200px"/>';
+    // adding marker sesuai titik
+      L.marker([-6.236704,106.79324]).addTo(mymap)
+      .bindPopup("<h3><b>Jakarta Selatan</b></h3><br /> "+ ij +" </br>"+kl+"</br>"+op+"</br>"+mn+" <br /><br />" + img2);
+      })
+
+      var qr="";
+      var st="";
+      var uv="";
+      var wx="";
+      var yz="";
+      var c = 'https://api.waqi.info/feed/indonesia/kemayoran/?token=d2979932369608cb248b3329736a6d480b3ff31c';
+      fetch(c).then(Response => { return Response.json();})
+      .then(data => {
+    
+          console.log(data);
+          qr=String("Air Quality Index = " +data.data.aqi);
+          yz=String("Nilai polutan PM10 = "+data.data.iaqi.pm10.v );
+          st=String("Polutan Dominan = " +data.data.dominentpol );
+          uv=String("Data diperbarui pada = "+data.data.time.s);
+          wx=String("Suhu udara = "+data.data.iaqi.t.v+"°C")
+          
+      }).then(Response => {
+        var img3 = '<img src="https://user-images.githubusercontent.com/62769656/129461985-6e28c953-8198-4b11-b27c-942f3dba02a5.png" height="150px" width="200px"/>';
+    // adding marker sesuai titik
+      L.marker([-6.1603721,106.8473377]).addTo(mymap)
+      .bindPopup("<h3><b>Jakarta Utara</b></h3><br /> "+ qr +" </br>"+st+"</br>"+yz+"</br>"+wx+"</br>"+uv+" <br /><br />" + img3);
+      })
+
+    //Marker dan keterangan pada marker
+    //var photoImg = '<img src="https://user-images.githubusercontent.com/62769656/123553092-94249a80-d7a3-11eb-83f5-4adef54e8fa1.jpg" height="150px" width="200px"/>';
+    // adding marker sesuai titik
+    //L.marker([-6.182554, 106.834241]).addTo(mymap)
+     // .bindPopup("<h3><b>Jakarta Pusat</b></h3><br /> <br /> "+ cd +" </br> Rata-rata PM2.5 = 110 <br /><br />" + photoImg);
+    
+   // L.marker([-6.236721, 106.793236]).addTo(mymap)
+   //   .bindPopup("<h3><b>Jakarta Selatan</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />")/*.openPopup()*/;
 
       //Lambang ketiga ini mengambil pm2,5  sebagai Nilai AQI utamanya jadi kadang berbeda hasil pengukurannya
-      L.marker([-6.160502, 106.847364]).addTo(mymap)
-      .bindPopup("<h3><b>Jakarta Utara</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />")/*.openPopup()*/;
+    //  L.marker([-6.160502, 106.847364]).addTo(mymap)
+   //   .bindPopup("<h3><b>Jakarta Utara</b></h3><br /> <br /> Rata-rata PM2.5 = 110 <br /><br />")/*.openPopup()*/;
 
+      
      /* 
     L.circle([-6.182554, 106.934241], 500, {
       color: 'red',
@@ -196,12 +273,15 @@
 
   </script>
 
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
 
 
-    <script type="text/javascript">
+    <!--
+      <script type="text/javascript">
       var urlapi = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
       fetch(urlapi).then(Response => { return Response.json();})
       .then(data => {
@@ -209,7 +289,7 @@
           console.log(data)
       })
         </script>
-
+      -->
 
 
     <!--Keterangan-->
@@ -221,10 +301,15 @@
         <div class="col-sm-2" style="background-color:#FF7E00; color: black;">Unhealthy For Sensitive Groups</div>
         <div class="col-sm-2" style="background-color:#d11609; color: white;">Unhealthy</div>
         <div class="col-sm-2" style="background-color:#800944; color: white;">Very Unhealthy</div>
-        <div class="col-sm-2" style="background-color: #4C0026; color: white;">Hazardous</div>
+        <div class="col-sm-2" style="background-color: #4c0000; color: white;">Hazardous</div>
       </div>
   
      </div>
+
+     <script type="text/javascript">
+      
+      </script>
+     
 
 
 </body>
