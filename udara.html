@@ -30,6 +30,9 @@
     }
     </style>
 
+    <!--Script untuk Chart.js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
+
     <title>Jakarta AQI</title>
   </head>
   <body>
@@ -141,75 +144,71 @@
            <table style="width: 100%;">
             <tr>
              <td>AQI</td> 
-             <td>Tingkat Polusi Udara</td>
-             <td>Implikasi Kesehatan</td>
-             <td>Pernyataan Peringatan (Untuk Polutan PM2.5)</td>
+             <td>Air Pollution Level</td>
+             <td>Health Implications</td>
+             <td>Cautionary Statement (for PM2.5)</td>
             </tr>
              
             <tr style="background-color: #0bb90b; color: white;">
               <td>0-50</td> 
               <td>Good</td>
-              <td>Kualitas udara sangat memuaskan. Polusi udara menimbulkan sedikit sampai tidak ada resiko kesehatan.</td>
+              <td> Air quality is considered satisfactory. Air pollution poses little or no risk.</td>
               <td>None</td>
              </tr>
   
              <tr style="background-color: #fafa07; color: black;">
               <td>51-100</td> 
               <td>Moderate</td>
-              <td>Kualitas udara dapat dibilang cukup baik. Namun, untuk beberapa polutan mungkin dapat menimbulkan masalah kesehatan untuk sekumpulan orang 
-                yang sangat sensitif terhadap polusi udara.
+              <td>Air quality is acceptable. Howefer, for some pollutants there may be a moderate health concern for a very small number of people who are 
+                unusually sensitive to air pollution.
               </td>
-              <td>Kelompok yang sangat sensitif terhadap polusi udara harus mulai memperhatikan keadaan udara.</td>
+              <td>None</td>
              </tr>
   
              <tr style="background-color: #FF7E00; color: black;">
               <td>101-150</td> 
-              <td>Unhealthy for Sensitive Groups </td>
-              <td>Kelompok orang yang sesnitif terhadap polusi mulai merasakan gangguan kesehatan. Publik umum tidak atau belum terpengaruh dengan gangguan kesehatan.</td>
-              <td>Anak-anak, orang dewasa, dan orang-orang dengan gangguan pernafasan sebagai asma harus mulai mengurangi kegiatan di luar.</td>
+              <td>Unhealthy for Sensitive Groups</td>
+              <td>Members of sensitive groups may experience health effects. The general public is not likely to be affected</td>
+              <td>Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.</td>
              </tr>
   
              <tr style="background-color: #d11609; color: white;">
               <td>151-200</td> 
               <td>Unhealthy</td>
-              <td>Semua orang mulai merasakan gangguan kesehatan. Kelompok dengan gangguan kesehatan dapat merasakan gangguan kesehatan yang serius.</td>
-              <td>Anak-anak, orang dewasa, dan orang dengan gangguan kesehatan, seperti asma, harus menghindari kegiatan di luar. 
-                Semua orang kecuali anak-anak, harus mulai mengurangi kegiatan di luar.
+              <td>Everyone may begin to experience health effects. Members of sensitive groups may experience more serious health effects.</td>
+              <td>Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion.
+                Everyone else except children, should limit prolonged outdoor exertion.
               </td>
              </tr>
   
              <tr style="background-color: #800944; color: white;">
               <td>201-300</td> 
               <td>Very Unhealthy</td>
-              <td>Peringatan kesehatan darurat. Seluruh populasi terpengaruh dengan polusi udara.</td>
-              <td>Anak-anak, orang dewasa dan orang dengan gangguan pernafasan seperti asma, dsb, harus menghindari kegiatan di luar.
-                Semua orang selain itu, harus mulai membatasi kegiatan di luar dan menjaga kesehatan diri.
-             </td>
+              <td>Health warnings of emergency conditions. The entire population is more likely to be affected.</td>
+              <td>Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion.
+                Everyone else except children, should limit prolonged outdoor exertion.</td>
              </tr>
   
              <tr style="background-color: #4C0026; color: white;">
               <td>300+</td> 
               <td>Hazardous</td>
-              <td>Peringatan Kesahatan! Semua orang akan merasakan gangguan kesehatan yang sangat serius.</td>
-              <td>Semua orang harus menghindari kegiatan di luar ruangan dan menjaga kesahatan diri secara ketat.</td>
+              <td>Health alert: everyone may experience more serious health effects.</td>
+              <td>Everyone should avoid all outdoor exertion.</td>
              </tr>
   
             </table> 
 
-            <p>Tabel ini terinspirasi dari tabel pada website AQICN. Untuk melihat tabel asli, silahkan kunjungi link <a href="https://aqicn.org/scale/">AQICN</a> </p>
-    <br><br>
+            <p>Tabel ini terinspirasi dari tabel pada website AQICN. Untuk melihat tabel asli, silahkan klik link ini.</p>
     </div>
    </div>
     
   <!-- 3. FORECASTING -->
    <div class="container mt-5 text-center">
     <h1 class="display-6"> Forecasting <br><br></h1>  
-     <p> Tabel berikut ini berisikan ramalan untuk polutan-polutan dan kualitas udara selama 5 hari kedepan.
     <!--Table-->
     <table style="width: 100%;">
       <tr id="tgl" style="background-color: rgb(5, 28, 129); color: whitesmoke;">
-       <td>Tanggal</td>
-       <td>Hari Ini</td>
+       <td>Tanggal</td> 
       </tr>
 
       <tr id="avg" style="background-color: rgb(129, 5, 81); color: whitesmoke;">
@@ -224,12 +223,10 @@
         <td>PM25</td>    
         </tr>
       
-      <tr id="aqi" style="background-color: orange; font-style: oblique; font-weight: bold">
+      <tr id="aqi" style="background-color: orange; font-style: oblique;">
         <td>AQI</td>    
         </tr>
-      </table>
-      <p>Penilaian AQI mengambil nilai polutan yang paling tinggi. Hal ini sesuai dengan aturan penilaian AQI oleh <i>United States Environmental Protection Agency</i>  
-        yang dapat dilihat di <a href="https://www.epa.gov/">EPA</a></p>
+      </table>      
       <br><br>
       </div>
 
@@ -238,7 +235,19 @@
     <div class="container mt-5 text-center">
       <h1 class="display-6">Data Historical</h1> <br>
         <br><br>
-        
+        <canvas id="chart" width="100%" height="50"></canvas>
+        <br><br><br>
+        <div class="row">
+          <div class="col-md-6">
+            <canvas id="chartdg" width="50" height="20"></canvas>
+            </div>
+          <div class="col-md-6">
+          <canvas id="chartdg2" width="50" height="20"></canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas id="chartdg3" width="50" height="20"></canvas>
+            </div>
+          </div>
     </div>
     </div>
 
@@ -271,23 +280,10 @@
   var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
-    let i = 3;
-    while(i <= data.data.forecast.daily.o3.length){
-      document.getElementById("tgl").innerHTML +="<td>" + data.data.forecast.daily.o3[i].day +"</td>";
-      i++;
-    };
-      console.log(data)
-  })
-    </script>
-    
-    <script type="text/javascript">
-  var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
-  fetch(url).then(Response => { return Response.json();})
-  .then(data => {
     let i = 2;
     while(i <= data.data.forecast.daily.o3.length){
       document.getElementById("avg").innerHTML +="<td>" + data.data.forecast.daily.o3[i].min + " - " + data.data.forecast.daily.o3[i].max + "</td>";
-     // document.getElementById("tgl").innerHTML +="<td>" + data.data.forecast.daily.o3[i].day +"</td>";
+      document.getElementById("tgl").innerHTML +="<td>" + data.data.forecast.daily.o3[i].day +"</td>";
       i++;
     };
         //GET DATA NORMAL
@@ -378,6 +374,274 @@
     setInterval(showTime, 500);
  </script>
 
+<!--Membuat Line ChartChart pada Website-->
+<script>
+  const ctx = document.getElementById('chart').getContext('2d');
+  const myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+      labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+      datasets: [
+          {
+          label: 'Tahun 2018',
+          data: [52.16, 74.57, 74.8, 95.13, 120.06, 112.75, 131.83, 120.03, 108.5, 126.11, 103.6, 75.26],
+          backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              //'rgba(54, 162, 235, 0.2)',
+              //'rgba(255, 206, 86, 0.2)',
+              //'rgba(75, 192, 192, 0.2)',
+              //'rgba(153, 102, 255, 0.2)',
+              //'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              'rgba(255, 99, 132, 1)',
+              //'rgba(54, 162, 235, 1)',
+              //'rgba(255, 206, 86, 1)',
+              //'rgba(75, 192, 192, 1)',
+              //'rgba(153, 102, 255, 1)',
+              //'rgba(255, 159, 64, 1)'
+          ],
+          yAxisID : 'y',
+          borderWidth: 1
+      },
+      {
+          label: 'Tahun 2019',
+          data: [66.06, 82.1, 72.42, 96.77, 103.93, 134.3, 136.61, 115.7, 115.6, 122.35, 111.8, 102.8],
+          backgroundColor: [
+              //'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              //'rgba(255, 206, 86, 0.2)',
+              //'rgba(75, 192, 192, 0.2)',
+              //'rgba(153, 102, 255, 0.2)',
+              //'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              //'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              //'rgba(255, 206, 86, 1)',
+              //'rgba(75, 192, 192, 1)',
+              //'rgba(153, 102, 255, 1)',
+              //'rgba(255, 159, 64, 1)'
+          ],
+          yAxisID : 'y1',
+          borderWidth: 1
+      },
+      {
+          label: 'Tahun 2020',
+          data: [78.45, 73.58, 83.16, 92.6, 93.13, 121.96, 121.07, 114.8, 110.82, 26.75, 94.76, 48.03],
+          backgroundColor: [
+              //'rgba(255, 99, 132, 0.2)',
+              //'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              //'rgba(75, 192, 192, 0.2)',
+              //'rgba(153, 102, 255, 0.2)',
+              //'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              //'rgba(255, 99, 132, 1)',
+              //'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              //'rgba(75, 192, 192, 1)',
+              //'rgba(153, 102, 255, 1)',
+              //'rgba(255, 159, 64, 1)'
+          ],
+          yAxisID : 'y1',
+          borderWidth: 1
+      }
+  ]
+
+  },
+  options: {
+      plugins :{
+          title:{
+              display :true,
+              text: 'Data Rata-Rata PM25'
+          }
+      },
+      scales: {
+          y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+              beginAtZero: true
+              
+          },
+          y1:{
+              type: 'linear',
+              display: false,
+              position: 'right',
+              beginAtZero: true
+          },
+          y2:{
+              type: 'linear',
+              display: false,
+              position: 'right',
+              beginAtZero: true
+          }
+      }
+  }
+});
+</script>
+<!--Doughnut Chart!-->
+<script>
+  const dgh = document.getElementById('chartdg').getContext('2d');
+  const myDgChart = new Chart(dgh, {
+  type: 'doughnut',
+  data: {
+      labels: ['Good', 'Moderate', 'Unhealthy for sensitive groups', 'Unhealthy', 'Very Unhealthy', 'Hazardous'],
+      datasets: [
+          {
+          label: 'Kategori',
+          data: [37, 117, 185, 7, 0, 0],
+          backgroundColor: [
+              'rgba(75, 192, 192, 0.2)',//Hijau
+              'rgba(255, 206, 86, 0.2)',//Kuning
+              'rgba(255, 159, 64, 0.2)',//Orange
+              'rgba(255, 99, 132, 0.2)',//Merah
+              'rgba(153, 102, 255, 0.2)',//Ungu
+              'rgba(162, 70, 87, 0.2)'//Maroon
+              
+          ],
+          borderColor: [
+              'rgba(75, 192, 192, 1)',//Hijau
+              'rgba(255, 206, 86, 1)',//Kuning
+              'rgba(255, 159, 64, 1)',//Orange
+              'rgba(255, 99, 132, 1)',//Merah
+              'rgba(153, 102, 255, 1)',//Ungu
+              'rgba(162, 70, 87, 1)'//Maroon
+              
+          ],
+          borderWidth: 1
+      }]
+  },
+  options: {
+    responsive:true,
+    
+      plugins :{
+          legend: {
+           position: 'right',
+           },
+          title:{
+              display :true,
+              text: 'Jumlah Kategori Udara di Jakarta Pada Tahun 2018'
+          }
+      },
+      scales: {
+          y: {
+              display:false
+              
+          }
+      }
+  }
+});
+  </script>
+  </script>
+  <!--Doughnut Chart2!-->
+  <script>
+    const dgh3 = document.getElementById('chartdg3').getContext('2d');
+    const myDgChart3 = new Chart(dgh3, {
+    type: 'doughnut',
+    data: {
+        labels: ['Good', 'Moderate', 'Unhealthy for sensitive groups', 'Unhealthy', 'Very Unhealthy', 'Hazardous'],
+        datasets: [
+            {
+            label: 'Kategori',
+            data: [37, 117, 185, 7, 0, 0],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',//Hijau
+                'rgba(255, 206, 86, 0.2)',//Kuning
+                'rgba(255, 159, 64, 0.2)',//Orange
+                'rgba(255, 99, 132, 0.2)',//Merah
+                'rgba(153, 102, 255, 0.2)',//Ungu
+                'rgba(162, 70, 87, 0.2)'//Maroon
+                
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',//Hijau
+                'rgba(255, 206, 86, 1)',//Kuning
+                'rgba(255, 159, 64, 1)',//Orange
+                'rgba(255, 99, 132, 1)',//Merah
+                'rgba(153, 102, 255, 1)',//Ungu
+                'rgba(162, 70, 87, 1)'//Maroon
+                
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive:true,
+        
+        plugins :{
+            legend: {
+             position: 'right',
+             },
+            title:{
+                display :true,
+                text: 'Jumlah Kategori Udara di Jakarta Pada Tahun 2018'
+            }
+        },
+        scales: {
+            y: {
+                display:false
+                
+            }
+        }
+    }
+  });
+    </script>
+    <!--Doughnut Chart2!-->
+  <script>
+    const dgh2 = document.getElementById('chartdg2').getContext('2d');
+    const myDgChart2 = new Chart(dgh2, {
+    type: 'doughnut',
+    data: {
+        labels: ['Good', 'Moderate', 'Unhealthy for sensitive groups', 'Unhealthy', 'Very Unhealthy', 'Hazardous'],
+        datasets: [
+            {
+            label: 'Kategori',
+            data: [37, 117, 185, 7, 0, 0],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',//Hijau
+                'rgba(255, 206, 86, 0.2)',//Kuning
+                'rgba(255, 159, 64, 0.2)',//Orange
+                'rgba(255, 99, 132, 0.2)',//Merah
+                'rgba(153, 102, 255, 0.2)',//Ungu
+                'rgba(162, 70, 87, 0.2)'//Maroon
+                
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',//Hijau
+                'rgba(255, 206, 86, 1)',//Kuning
+                'rgba(255, 159, 64, 1)',//Orange
+                'rgba(255, 99, 132, 1)',//Merah
+                'rgba(153, 102, 255, 1)',//Ungu
+                'rgba(162, 70, 87, 1)'//Maroon
+                
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive:true,
+        
+        plugins :{
+            legend: {
+             position: 'right',
+             },
+            title:{
+                display :true,
+                text: 'Jumlah Kategori Udara di Jakarta Pada Tahun 2018'
+            }
+        },
+        scales: {
+            y: {
+                display:false
+                
+            }
+        }
+    }
+  });
+    </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
