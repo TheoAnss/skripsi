@@ -249,10 +249,11 @@
             <canvas id="chartdg" width="50" height="20"></canvas>
             </div>
           <div class="col-md-6">
-          <canvas id="chartdg2" width="50" height="20"></canvas>
+            <canvas id="chartdg3" width="50" height="20"></canvas>
+          
           </div>
           <div class="col-md-6">
-            <canvas id="chartdg3" width="50" height="20"></canvas>
+            <canvas id="chartdg2" width="50" height="20"></canvas>
             </div>
           </div>
     </div>
@@ -278,7 +279,7 @@
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
     fetch(apiUrl).then(Response => { return Response.json();})
     .then(data => {
-        document.getElementById("result").innerHTML +="<br>Aqi sekarang adalah <h2>" + data.data.aqi +"</h2>";
+        document.getElementById("result").innerHTML +="<br>AQI saat ini <br><h2>" + data.data.aqi +"</h2>";
         console.log(data)
     })
     </script>
@@ -430,7 +431,7 @@
               //'rgba(153, 102, 255, 1)',
               //'rgba(255, 159, 64, 1)'
           ],
-          yAxisID : 'y1',
+          yAxisID : 'y',
           borderWidth: 1
       },
       {
@@ -452,13 +453,14 @@
               //'rgba(153, 102, 255, 1)',
               //'rgba(255, 159, 64, 1)'
           ],
-          yAxisID : 'y1',
+          yAxisID : 'y',
           borderWidth: 1
       }
   ]
 
   },
   options: {
+    responsive:true,
       plugins :{
           title:{
               display :false,
@@ -467,23 +469,10 @@
       },
       scales: {
           y: {
-              type: 'linear',
+              
               display: true,
               position: 'left',
-              beginAtZero: true
-              
-          },
-          y1:{
-              type: 'linear',
-              display: false,
-              position: 'right',
-              beginAtZero: true
-          },
-          y2:{
-              type: 'linear',
-              display: false,
-              position: 'right',
-              beginAtZero: true
+              beginAtZero: false
           }
       }
   }
