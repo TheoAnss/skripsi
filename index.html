@@ -95,8 +95,19 @@
 <body>
 
   <div class="splash">
-    <h1 class="fadeIn">WELCOME</h1>
-  </div>
+    <div class="row">
+      <div class="col-md-2">
+        <img class = "fadeIn" src ="https://user-images.githubusercontent.com/62769656/129476555-c4a684a5-8570-4dce-9cd4-d6717d23231b.png">
+        </div>
+      <div class="col-md-2">
+        
+      </div>
+      <div class="col-md-2">
+        
+        </div>
+      </div>
+      </div>
+  
  
   <script>
     const splash = document.querySelector('.splash');
@@ -170,7 +181,7 @@
     var a = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
       fetch(a).then(Response => { return Response.json();})
       .then(data => {
-        
+
           console.log(data);
           cd=String("Air Quality Index = " +data.data.aqi);
           ab=String("Polutan Dominan = " +data.data.dominentpol );
@@ -266,14 +277,21 @@
 
     <!--Keterangan-->
     <div class = "container" id="stacked">
+      
       <div class = "row">
         <!-- Warna ini berdasarkan Report Guidline Air Quality EPA GOV US -->
-        <div class="col-sm-2" style='background-color:#0bb90b; color: white;'>Good</div>
-        <div class="col-sm-2" style='color: black; background-color:#fafa07;'>Moderate</div>
-        <div class="col-sm-2" style="background-color:#FF7E00; color: black;">Unhealthy For Sensitive Groups</div>
-        <div class="col-sm-2" style="background-color:#d11609; color: white;">Unhealthy</div>
-        <div class="col-sm-2" style="background-color:#800944; color: white;">Very Unhealthy</div>
-        <div class="col-sm-2" style="background-color: #4c0000; color: white;">Hazardous</div>
+        <div class="col-sm-2" style='background-color:#0bb90b; color: white;'>Good
+        <br>0-50</div>
+        <div class="col-sm-2" style='color: black; background-color:#fafa07;'>Moderate
+        <br>51-100</div>
+        <div class="col-sm-2" style="background-color:#FF7E00; color: black; font-size: smaller;">Unhealthy For Sensitive Groups
+          <br>101-150</div>
+        <div class="col-sm-2" style="background-color:#d11609; color: white;">Unhealthy
+          <br>151-200</div>
+        <div class="col-sm-2" style="background-color:#800944; color: white;">Very Unhealthy
+          <br>201-300</div>
+        <div class="col-sm-2" style="background-color: #4c0000; color: white;">Hazardous
+          <br>201-300</div>
       </div>
      </div>
 
