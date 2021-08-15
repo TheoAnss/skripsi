@@ -74,11 +74,17 @@
         </div>
       </div>
     </nav>
-
+    <header class="py-5 bg-light border-bottom mb-4">
+      <div class="container">
+          <div class="text-center my-5">
+              <h1 class="fw-bolder">Jakarta Air Quality Index</h1>
+          </div>
+      </div>
+  </header>
     <!-- CONTENT -->
     <!-- 1. KUALITAS UDARA DI JAKARTA -->
     <div class="container mt-5 text-center">
-      <h1 class="display-6">Kualitas udara di Jakarta </h1> <br>
+      
         <div class="row">
          <div class="col-md-6">
            <div class="container border border-dark" style="height:250px; font-size: 30px;">
@@ -241,21 +247,26 @@
       <h1 class="display-6">Data Historis</h1> <br>
         <br><br>
         <p><h3>Data Rata-Rata PM25</h3></p>
-        <canvas id="chart" width="100%" height="50"></canvas>
+        <canvas id="chart" width="100%" height="50"></canvas><br>
+        <p>Grafik garis di atas menunjukkan nilai rata-rata polutan PM25 perbulan selama tahun 2018, 2019, dan 2020.
+        </p>
         <br><br><br>
         <p><h3>Jumlah Data Udara Menurut Kategori Polusi Udara</h3></p>
         <div class="row">
-          <div class="col-md-6">
-            <canvas id="chartdg" width="50" height="20"></canvas>
+          <div class="col-md-4">
+            <canvas id="chartdg" width="50" height="20"></canvas><br>
             </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <canvas id="chartdg3" width="50" height="20"></canvas>
           
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <canvas id="chartdg2" width="50" height="20"></canvas>
             </div>
           </div>
+          <p>Grafik di atas menunjukkan jumlah data tingkat kualitas udara per kategori dalam setiap tahun. Dapat dilihat ada beberapa peningkatan 
+            udara tidak sehat dari tahun 2018 dan 2019, angka tersebut menurun tahun 2020.
+          </p>
     </div>
     </div>
 
@@ -265,12 +276,12 @@
   </div>
   <br><br><br>
     
-    <!-- FOOTER -->
-   <footer class="footer">
-    <div class="container text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">
-      <span class="text-muted">Copyright @theodorusansell 2021.</span>
-    </div>
-  </footer>
+    <!--FOOTER-->
+    <footer class="p-3 mb-2 bg-light text-gray-dark">
+    
+      <div class="container"><p class="m-0 text-center text-muted">Copyright @theodorusansell 2021.</p></div>
+  
+</footer>
 
 
 
