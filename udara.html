@@ -218,15 +218,17 @@
     <table style="width: 100%;">
       <tr id="tgl" style="background-color: rgb(5, 28, 129); color: whitesmoke;">
        <td>Tanggal</td> 
+       <td>Hari Ini</td>
       </tr>
 
       <tr id="avg" style="background-color: rgb(129, 5, 81); color: whitesmoke;">
       <td>O3</td>    
       </tr>
-
+      <!--
       <tr id="pm" style="background-color: rgb(129, 5, 5); color: whitesmoke;">
       <td>PM10</td>    
       </tr>
+        -->
 
       <tr id="pmm" style="background-color: rgb(5, 129, 36); color: whitesmoke;">
         <td>PM25</td>    
@@ -295,26 +297,35 @@
     </script>
     
     <script type="text/javascript">
+      var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
+      fetch(url).then(Response => { return Response.json();})
+      .then(data => {
+        let i = 3;
+        while(i <= data.data.forecast.daily.o3.length){
+          document.getElementById("tgl").innerHTML +="<td>" + data.data.forecast.daily.o3[i].day +"</td>";
+          i++;
+        };
+          console.log(data)
+      })
+        </script>
+
+
+    <script type="text/javascript">
   var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
     let i = 2;
     while(i <= data.data.forecast.daily.o3.length){
       document.getElementById("avg").innerHTML +="<td>" + data.data.forecast.daily.o3[i].min + " - " + data.data.forecast.daily.o3[i].max + "</td>";
-      document.getElementById("tgl").innerHTML +="<td>" + data.data.forecast.daily.o3[i].day +"</td>";
       i++;
     };
-        //GET DATA NORMAL
-        /*data.data.forecast.daily.o3.forEach(element =>{
-        document.getElementById("avg").innerHTML +="&emsp;" + element.avg +"&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;";
-        document.getElementById("tgl").innerHTML +=element.day +"&emsp;&emsp;";
-        console.log(element)
-      });*/
-    
+       
       console.log(data)
   })
     </script>
 
+<!--
+  CODE UNTUK MENGAMBIL DATA PM10
 <script type="text/javascript">
   var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
   fetch(url).then(Response => { return Response.json();})
@@ -327,7 +338,7 @@
       console.log(data)
   })
     </script>
-
+  -->
 <script type="text/javascript">
   var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
   fetch(url).then(Response => { return Response.json();})
