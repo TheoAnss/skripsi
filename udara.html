@@ -224,11 +224,11 @@
       <tr id="avg" style="background-color: rgb(129, 5, 81); color: whitesmoke;">
       <td>O3</td>    
       </tr>
-      <!--
+      
       <tr id="pm" style="background-color: rgb(129, 5, 5); color: whitesmoke;">
       <td>PM10</td>    
       </tr>
-        -->
+        
 
       <tr id="pmm" style="background-color: rgb(5, 129, 36); color: whitesmoke;">
         <td>PM25</td>    
@@ -324,8 +324,8 @@
   })
     </script>
 
-<!--
-  CODE UNTUK MENGAMBIL DATA PM10
+
+  <!--CODE UNTUK MENGAMBIL DATA PM10-->
 <script type="text/javascript">
   var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
   fetch(url).then(Response => { return Response.json();})
@@ -334,11 +334,13 @@
     while(i <= data.data.forecast.daily.pm10.length){
       document.getElementById("pm").innerHTML +="<td>" + data.data.forecast.daily.pm10[i].min + " - " + data.data.forecast.daily.pm10[i].max + "</td>";
       i++;
+      
+      
     };
       console.log(data)
   })
     </script>
-  -->
+  
 <script type="text/javascript">
   var url = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
   fetch(url).then(Response => { return Response.json();})
